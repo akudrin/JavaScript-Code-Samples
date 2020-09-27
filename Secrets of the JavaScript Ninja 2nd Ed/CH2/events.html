@@ -12,7 +12,7 @@
     <script>
       //Assigning functions to special properties is not recommended. It’s
       //only possible to register one function handler for a particular event.
-      window.onload = function() {
+      window.onload = function () {
         alert("Hello on Load");
       };
 
@@ -22,11 +22,11 @@
 
       //recommended - The addEventListener method enables us to register
       //as many event-handler functions as we need.
-      document.addEventListener("click", function() {
+      document.addEventListener("click", function () {
         document.getElementById("demo").innerHTML = "Click";
       });
 
-      document.addEventListener("mousemove", function() {
+      document.addEventListener("mousemove", function () {
         document.getElementById("demo").innerHTML = "Mouse Move";
       });
     </script>
