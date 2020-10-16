@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="test">Click Me!</button>
+    <script>
+      /*
+        Arrow functions don't have their
+own context. Instead, the context is inherited
+from the function in which they’re defined. The
+this parameter in our arrow function callback
+refers to the button object.
+        */
+      function Button() {
+        this.clicked = false;
+        this.click = () => {
+          this.clicked = true;
+          assert(button.clicked, "The button has been clicked"); //
+        };
+      }
+      var button = new Button();
+      var elem = document.getElementById("test");
+      elem.addEventListener("click", button.click);
+    </script>
+  </body>
+</html>
