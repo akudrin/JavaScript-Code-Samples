@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="test">Click Me!</button>
+    <script>
+      assert(this === window, "this === window");
+      var button = {
+        clicked: false,
+        click: () => {
+          this.clicked = true;
+          assert(button.clicked, "The button has been clicked");
+          assert(this === window, "In arrow function this === window");
+          assert(window.clicked, "clicked is stored in window");
+        },
+      };
+      var elem = document.getElementById("test");
+      elem.addEventListener("click", button.click);
+    </script>
+  </body>
+</html>
