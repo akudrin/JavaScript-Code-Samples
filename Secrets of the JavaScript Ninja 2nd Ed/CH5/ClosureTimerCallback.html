@@ -13,7 +13,7 @@
         var tick = 0;
         var timer = setInterval(function () {
           if (tick < 100) {
-            elem.style.left = elem.style.top = tick + "px";
+            elem.style.marginTop = elem.style.marginLeft = tick + "px";
             tick++;
           } else {
             clearInterval(timer);
