@@ -1,0 +1,20 @@
+<style>
+  div {
+    font-size: 1.8em;
+    border: 0 solid gold;
+  }
+</style>
+<div style="color: #000" title="Ninja power!">忍者パワー</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const div = document.querySelector("div");
+    assert(
+      div.style.color === "rgb(0, 0, 0)" || div.style.color === "#000",
+      "color was recorded"
+    );
+    assert(div.style.fontSize === "1.8em", "fontSize was recorded");
+    assert(div.style.borderWidth === "0", "borderWidth was recorded");
+    div.style.borderWidth = "4px";
+    assert(div.style.borderWidth === "4px", "borderWidth was replaced");
+  });
+</script>
