@@ -1,0 +1,16 @@
+<div id="ninja">I’m a ninja</div>
+<div id="samurai">I’m a samurai</div>
+<div id="ronin">I’m a ronin</div>
+<script>
+  const ninja = document.getElementById('ninja');
+  const samurai = document.getElementById('samurai');
+  const ronin = document.getElementById('ronin');
+  //Batches all reads to layout properties together
+  const ninjaWidth = ninja.clientWidth;
+  const samuraiWidth = samurai.clientWidth;
+  const roninWidth = ronin.clientWidth;
+  //Batches all writes to layout properties together
+  ninja.style.width = ninjaWidth / 2 + 'px';
+  samurai.style.width = samuraiWidth / 2 + 'px';
+  ronin.style.width = roninWidth / 2 + 'px';
+</script>
