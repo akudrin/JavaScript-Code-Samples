@@ -1,0 +1,16 @@
+<button id="firstButton"></button>
+<button id="secondButton"></button>
+<script>
+  const firstButton = document.getElementById('firstButton');
+  const secondButton = document.getElementById('secondButton');
+  firstButton.addEventListener('click', function firstHandler() {
+    Promise.resolve().then(() => {
+      /*Some promise handling code that runs for 4 ms*/
+    });
+    /*Some click handle code that runs for 8 ms*/
+  });
+  secondButton.addEventListener('click', function secondHandler() {
+    /*Click handle code that runs for 5ms*/
+  });
+  /*Code that runs for 15ms*/
+</script>
