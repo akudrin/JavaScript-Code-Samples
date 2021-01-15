@@ -1,0 +1,14 @@
+<button id="myButton"></button>
+<script>
+  setTimeout(function timeoutHandler() {
+    /*Some timeout handle code that runs for 6ms*/
+  }, 10);
+  setInterval(function intervalHandler() {
+    /*Some interval handle code that runs for 8ms*/
+  }, 10);
+  const myButton = document.getElementById('myButton');
+  myButton.addEventListener('click', function clickHandler() {
+    /*Some click handle code that runs for 10ms*/
+  });
+  /*Code that runs for 18ms*/
+</script>
