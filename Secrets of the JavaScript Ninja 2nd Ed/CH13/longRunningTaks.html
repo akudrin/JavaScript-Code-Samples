@@ -1,0 +1,15 @@
+<table>
+  <tbody></tbody>
+</table>
+<script>
+  const tbody = document.querySelector('tbody');
+  for (let i = 0; i < 20000; i++) {
+    const tr = document.createElement('tr');
+    for (let t = 0; t < 6; t++) {
+      const td = document.createElement('td');
+      td.appendChild(document.createTextNode(i + ',' + t));
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+</script>
