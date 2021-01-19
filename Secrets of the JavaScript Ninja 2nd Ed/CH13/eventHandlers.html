@@ -1,0 +1,11 @@
+<button id="myButton">Click</button>
+<script>
+  const myButton = document.getElementById('myButton');
+  myButton.addEventListener('click', function myHandler(event) {
+    assert(
+      event.target === myButton,
+      'The target of the event is also myButton'
+    );
+    assert(this === myButton, 'The handler is registered on myButton');
+  });
+</script>
