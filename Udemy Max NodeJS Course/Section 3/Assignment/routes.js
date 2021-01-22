@@ -25,14 +25,17 @@ const userHandler = (req, res) => {
       console.log(message);
     });
   }
-  res.setHeader('Content-Type', 'text/html');
-  res.write('<html>');
-  res.write('<head><title>My First Page</title><head>');
-  res.write(
-    '<body><ul><li>User 1</li><li>User 2</li><li>User 3</li></ul></body>'
-  );
-  res.write('</html>');
-  res.end();
+
+  if (url == '/users') {
+    res.setHeader('Content-Type', 'text/html');
+    res.write('<html>');
+    res.write('<head><title>My First Page</title><head>');
+    res.write(
+      '<body><ul><li>User 1</li><li>User 2</li><li>User 3</li></ul></body>'
+    );
+    res.write('</html>');
+    res.end();
+  }
 };
 module.exports.userHandler = userHandler;
 module.exports.Test = 'Hello';
