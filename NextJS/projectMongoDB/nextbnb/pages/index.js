@@ -2,6 +2,13 @@ import Head from 'next/head';
 import { connectToDatabase } from '../util/mongodb';
 
 export default function Home({ properties }) {
+  const book = async (property) => {
+    const data = await fetch(
+      `http://localhost:3000/api/book?property_id=${property._id}&guest=AK`
+    );
+    const res = await data.json();
+    console.log(res);
+  };
   return (
     <div>
       <Head>
@@ -30,7 +37,10 @@ export default function Home({ properties }) {
                   <span class='text-green-500'>{property.price}</span>/night
                 </div>
                 <div class='text-center py-2 my-2 font-bold'>
-                  <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-5 rounded'>
+                  <button
+                    class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-5 rounded'
+                    onClick={() => book(property)}
+                  >
                     Book
                   </button>
                 </div>
