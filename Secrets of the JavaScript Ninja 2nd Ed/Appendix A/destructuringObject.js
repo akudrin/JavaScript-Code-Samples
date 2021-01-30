@@ -1,0 +1,12 @@
+const ninja = { name: 'Yoshi', action: 'skulk', weapon: 'shuriken' };
+const nameOld = ninja.name;
+const actionOld = ninja.action;
+const weaponOld = ninja.weapon;
+const { name, action, weapon } = ninja;
+assert(name === 'Yoshi', 'Our ninja Yoshi');
+assert(action === 'skulk', 'is skulking');
+assert(weapon === 'shuriken', 'with a shuriken');
+const { name: myName, action: myAction, weapon: myWeapon } = ninja;
+assert(myName === 'Yoshi', 'Our ninja Yoshi');
+assert(myAction === 'skulk', 'is skulking');
+assert(myWeapon === 'shuriken', 'with a shuriken');
