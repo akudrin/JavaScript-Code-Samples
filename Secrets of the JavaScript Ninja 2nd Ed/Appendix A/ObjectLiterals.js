@@ -9,7 +9,7 @@ oldNinja['old' + name] = true;
 assert(oldNinja.name === 'Yoshi', 'Yoshi here');
 assert(typeof oldNinja.getName === 'function', 'with a method');
 assert('oldYoshi' in oldNinja, 'and a dynamic property');
-constnewNinja = {
+const newNinja = {
   name,
   getName() {
     return this.name;
