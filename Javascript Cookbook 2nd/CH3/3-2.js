@@ -1,4 +1,5 @@
 var reverseArray = function (x, indx, str) {
+  console.log(indx);
   return indx == 0 ? str : reverseArray(x, --indx, (str += ' ' + x[indx]));
 };
 var arr = ['apple', 'orange', 'peach', 'lime'];
