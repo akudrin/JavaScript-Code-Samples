@@ -1,6 +1,6 @@
 function sumRounds() {
   var args = [].slice.call(arguments);
-  console.log(typeof args);
+  console.log(Array.isArray(args));
   return args.reduce(function (val1, val2) {
     return parseInt(val1, 10) + parseInt(val2, 10);
   });
