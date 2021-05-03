@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="math.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var result = math.select(9).add(3).subtract(6).multiply(23).done(); // get value
+      console.log(result); //{ value: 138 }
+      console.log(math.sqrt(-4).toString()); // 2i
+      // functions and constants
+      math.round(math.e, 3); // 2.718
+      math.atan2(3, -3) / math.pi; // 0.75
+      math.log(10000, 10); // 4
+      math.sqrt(-4); // 2i
+      math.pow(
+        [
+          [-1, 2],
+          [3, 1],
+        ],
+        2
+      ); // [[7, 0], [0, 7]]
+
+      // expressions
+      math.evaluate('12 / (2.3 + 0.7)'); // 4
+      math.evaluate('12.7 cm to inch'); // 5 inch
+      math.evaluate('sin(45 deg) ^ 2'); // 0.5
+      math.evaluate('9 / 3 + 2i'); // 3 + 2i
+      math.evaluate('det([-1, 2; 3, 1])'); // -7
+    </script>
+  </body>
+</html>
