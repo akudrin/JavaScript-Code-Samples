@@ -1,6 +1,8 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+const replaceTemplate = require('./modules/replaceTemplate');
+const slugify = require('slugify');
 
 // FILES
 
@@ -30,22 +32,6 @@ const url = require('url');
 
 //SERVER
 
-const replaceTemplate = (temp, product) => {
-  let output = temp.replace(/{%PRODUCTNAME%}/g, product.productName);
-  output = output.replace(/{%IMAGE%}/g, product.image);
-  output = output.replace(/{%PRICE%}/g, product.price);
-  output = output.replace(/{%FROM%}/g, product.from);
-  output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
-  output = output.replace(/{%QUANTITY%}/g, product.quantity);
-  output = output.replace(/{%DESCRIPTION%}/g, product.description);
-  output = output.replace(/{%ID%}/g, product.id);
-  if (!product.organic) {
-    output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic');
-  }
-
-  return output;
-};
-
 const tempOverview = fs.readFileSync(
   `${__dirname}/templates/template-overview.html`,
   'utf-8'
@@ -61,17 +47,17 @@ const tempProduct = fs.readFileSync(
 );
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObject = JSON.parse(data);
+const slugs = dataObject.map((el) => slugify(el.productName, { lower: true }));
 
 const server = http.createServer((req, res) => {
   const baseURL = `http://${req.headers.host}`;
   const requestURL = new URL(req.url, baseURL);
   const pathName = requestURL.pathname;
-  const query = requestURL.searchParams.get('id');
-  console.log(query);
+  //const query = requestURL.searchParams.get('id');
 
   //Overview page
   if (pathName === '/' || pathName === '/overview') {
-    res.writeHead(404, {
+    res.writeHead(200, {
       'Content-type': 'text/html',
     });
 
@@ -82,13 +68,23 @@ const server = http.createServer((req, res) => {
 
     res.end(output);
     //Product page
-  } else if (pathName === '/product') {
-    res.writeHead(404, {
+  } else if (slugs.includes(slugify(pathName, { remove: '/' }))) {
+    res.writeHead(200, {
       'Content-type': 'text/html',
     });
-    const product = dataObject[query];
+    const newPathName = slugify(pathName, { remove: '/' });
+    let product = {};
+    for (var i = 0; i < dataObject.length; i++) {
+      if (
+        slugify(dataObject[i].productName, { lower: true }) ===
+        slugify(pathName, { remove: '/' })
+      ) {
+        product = dataObject[i];
+      }
+    }
     const output = replaceTemplate(tempProduct, product);
     res.end(output);
+
     //API
   } else if (pathName === '/api') {
     res.writeHead(200, { 'Content-type': 'application/json' });
