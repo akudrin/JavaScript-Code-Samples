@@ -8,3 +8,7 @@ function convertBoolToNums(key, value) {
 var obj = { test: 'value1', test2: 3.44, test3: false };
 var jsonstr = JSON.stringify(obj, convertBoolToNums, 3);
 console.log(jsonstr); // '{ "test" : "value1", "test2" : 3.44, "test3" : 0}'
+
+var whitelist = ['test', 'test2'];
+var obj = { test: 'value1', test2: 3.44, test3: false };
+var jsonobj = JSON.stringify(obj, whitelist, '\t');
