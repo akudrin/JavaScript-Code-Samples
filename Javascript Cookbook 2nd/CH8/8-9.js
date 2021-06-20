@@ -1,4 +1,9 @@
 var xmlhttp;
+window.onload = function () {
+  xmlhttp = new XMLHttpRequest();
+  populateList();
+};
+
 // prepare and send XHR request
 function populateList() {
   var url = 'text.txt'; // change to full url to prevent caching problems
@@ -18,8 +23,3 @@ function processResponse() {
     console.log(xmlhttp.responseText);
   }
 }
-
-window.onload = function () {
-  xmlhttp = new XMLHttpRequest();
-  populateList();
-};
