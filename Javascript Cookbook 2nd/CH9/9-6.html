@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <title>Play video in canvas</title>
+  <meta charset="utf-8" />
+  <script>
+    window.onload = function () {
+      document
+        .getElementById('videoobj')
+        .addEventListener('timeupdate', drawVideo, false);
+    };
+    function drawVideo() {
+      var videoObj = document.getElementById('videoobj');
+      var canvasObj = document.getElementById('canvasobj');
+      var ctx = canvasObj.getContext('2d');
+      ctx.drawImage(videoObj, 0, 0);
+    }
+  </script>
+</head>
+<body>
+  <video id="videoobj" controls width="480" height="270">
+    <source src="videofile.mp4" type="video/mp4" />
+    <source src="videofile.webm" type="video/webm" />
+  </video>
+  <canvas id="canvasobj" width="480" height="270"></canvas>
+</body>
