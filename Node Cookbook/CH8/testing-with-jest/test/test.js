@@ -20,4 +20,11 @@ describe("uppercase", () => {
   test("uppercase hello returns HELLO", () => {
     expect(uppercase("hello")).toBe("HELLO");
   });
+
+  test("uppercase hello returns HELLO", () => {
+    let upperCase = jest.fn(() => "HELLO");
+    const result = upperCase("hello");
+    expect(upperCase).toHaveBeenCalledWith("hello");
+    expect(result).toBe("HELLO");
+  });
 });
