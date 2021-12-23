@@ -22,9 +22,15 @@ describe("uppercase", () => {
   });
 
   test("uppercase hello returns HELLO", () => {
+<<<<<<< HEAD
     let upperCase = jest.fn(() => "HELLO");
     const result = upperCase("hello");
     expect(upperCase).toHaveBeenCalledWith("hello");
+=======
+    uppercase = jest.fn(() => "HELLO");
+    const result = uppercase("hello");
+    expect(uppercase).toHaveBeenCalledWith("hello");
+>>>>>>> 9b37c501aac29eb8597f967419d0518ce015a1c0
     expect(result).toBe("HELLO");
   });
 });
