@@ -9,8 +9,7 @@ if (!task) {
 }
 
 function addTask() {
-  const key = `Task:
- ${Math.random().toString(32).replace(".", "")}`;
+  const key = `Task: ${Math.random().toString(32).replace(".", "")}`;
   db.put(key, task, (err) => {
     if (err) throw err;
     listTasks();
