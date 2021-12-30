@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 router.get("/", (req, res) => {
-  res.render("index");
+  const user = req.session.user;
+  res.render("index", { user });
 });
 module.exports = router;
