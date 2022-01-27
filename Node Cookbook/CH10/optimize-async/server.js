@@ -16,8 +16,7 @@ MongoClient.connect(URL, { useUnifiedTopology: true }, (err, client) => {
       const average =
         data.reduce((accumulator, value) => accumulator + value.value, 0) /
         data.length;
-      res.send(`Average of all values is
-${average}.`);
+      res.send(`Average of all values is ${average}.`);
     });
   });
   app.listen(3000);
