@@ -11,6 +11,8 @@ export default class extends Component {
         {this.message()}
       </h4>
       <img src={reactLogo} alt="reactLogo" />
+      <link rel="stylesheet" href={process.env.PUBLIC_URL + "/static.css"} />
+      <img src={process.env.PUBLIC_URL + "/logo.svg"} alt="reactLogo" />
     </div>
   );
 }
