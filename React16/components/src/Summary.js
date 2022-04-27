@@ -1,23 +1,17 @@
 import React from "react";
-import { CallbackButton } from "./CallbackButton";
+function createInnerElements(names) {
+  let arrayElems = [];
+  for (let i = 0; i < names.length; i++) {
+    arrayElems.push(
+      <div>{`${names[i]} contains ${names[i].length} letters`}</div>
+    );
+  }
+  return arrayElems;
+}
 export function Summary(props) {
   return (
-    <React.Fragment>
-      <td>{props.index + 1} </td>
-      <td>{props.name} </td>
-      <td>{props.name.length} </td>
-      <td>
-        <CallbackButton
-          theme="primary"
-          text="Reverse"
-          callback={props.reverseCallback}
-        />
-        <CallbackButton
-          theme="info"
-          text="Promote"
-          callback={() => props.promoteCallback(props.name)}
-        />
-      </td>
-    </React.Fragment>
+    <h4 className="bg-info text-white text-center p-2">
+      {createInnerElements(props.names)}
+    </h4>
   );
 }
