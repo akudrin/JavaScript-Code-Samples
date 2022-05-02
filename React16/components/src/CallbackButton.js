@@ -9,7 +9,3 @@ export function CallbackButton(props) {
     />
   );
 }
-CallbackButton.defaultProps = {
-  text: "Default Text",
-  theme: "warning",
-};
