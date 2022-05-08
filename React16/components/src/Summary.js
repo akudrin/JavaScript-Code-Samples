@@ -1,6 +1,7 @@
 import React from "react";
 //import { CallbackButton } from "./CallbackButton";
 import { SimpleButton } from "./SimpleButton";
+import { HooksButton } from "./HooksButton";
 export function Summary(props) {
   return (
     <React.Fragment>
@@ -13,7 +14,7 @@ export function Summary(props) {
           callback={props.reverseCallback}
           text={`Reverse (${props.name})`}
         />
-        <SimpleButton
+        <HooksButton
           className="btn btn-info btn-sm m-1"
           callback={() => props.promoteCallback(props.name)}
           text={`Promote (${props.name})`}
