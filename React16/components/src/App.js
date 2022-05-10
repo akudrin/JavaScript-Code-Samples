@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Summary } from "./Summary";
 import ReactDOM from "react-dom";
 let names = ["Bob", "Alice", "Dora"];
@@ -11,6 +11,8 @@ function promoteName(name) {
   ReactDOM.render(<App />, document.getElementById("root"));
 }
 export default function App() {
+  const [counter, setCounter] = useState(0);
+  const incrementCounter = (increment) => setCounter(counter + increment);
   return (
     <table className="table table-sm table-striped">
       <thead>
@@ -28,6 +30,8 @@ export default function App() {
               name={name}
               reverseCallback={reverseNames}
               promoteCallback={promoteName}
+              counter={counter}
+              incrementCallback={incrementCounter}
             />
           </tr>
         ))}

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { SimpleButton } from "./SimpleButton";
 import { HooksButton } from "./HooksButton";
 export class Summary extends Component {
-  constructor(props) {
+  /*  constructor(props) {
     super(props);
     this.state = {
       counter: 0,
@@ -13,7 +13,7 @@ export class Summary extends Component {
     this.setState((state) => {
       return { counter: state.counter + increment };
     });
-  };
+  }; */
   render() {
     const props = this.props;
     return (
@@ -28,6 +28,7 @@ export class Summary extends Component {
             text={`Reverse (${props.name})`}
             counter={this.state.counter}
             incrementCallback={this.incrementCounter}
+            {...this.props}
           />
           <HooksButton
             className="btn btn-info btn-sm m-1"
@@ -35,6 +36,7 @@ export class Summary extends Component {
             text={`Promote (${props.name})`}
             counter={this.state.counter}
             incrementCallback={this.incrementCounter}
+            {...this.props}
           />
         </td>
       </React.Fragment>
