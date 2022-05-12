@@ -13,7 +13,12 @@ export default class App extends Component {
           {this.state.message}
         </div>
         <div className="text-center">
-          <button className="btn btn-primary">Click Me</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => this.setState({ message: "Clicked!" })}
+          >
+            Click Me
+          </button>
         </div>
       </div>
     );
