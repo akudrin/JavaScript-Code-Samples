@@ -7,9 +7,9 @@ export default class App extends Component {
     };
   }
 
-  handleEvent() {
-    console.log("handleEvent method invoked");
-  }
+  handleEvent = () => {
+    this.setState({ message: "Clicked!" });
+  };
 
   render() {
     return (
