@@ -7,8 +7,8 @@ export default class App extends Component {
     };
   }
 
-  handleEvent = () => {
-    this.setState({ message: "Clicked!" });
+  handleEvent = (event) => {
+    this.setState({ message: `Event: ${event.type} ` });
   };
 
   render() {
