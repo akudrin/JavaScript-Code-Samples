@@ -9,12 +9,12 @@ export default class App extends Component {
     };
   }
 
-  handleEvent = (event) => {
+  handleEvent = (event, newTheme) => {
     event.persist();
     this.setState(
       {
         counter: this.state.counter + 1,
-        theme: event.target.innerText === "Normal" ? "primary" : "danger",
+        theme: newTheme,
       },
       () => this.setState({ message: `${event.type}: ${this.state.counter}` })
     );
@@ -29,10 +29,16 @@ export default class App extends Component {
           {this.state.message}
         </div>
         <div className="text-center">
-          <button className="btn btn-primary" onClick={this.handleEvent}>
+          <button
+            className="btn btn-primary"
+            onClick={(e) => this.handleEvent(e, "primary")}
+          >
             Normal
           </button>
-          <button className="btn btn-danger m-1" onClick={this.handleEvent}>
+          <button
+            className="btn btn-danger m-1"
+            onClick={(e) => this.handleEvent(e, "danger")}
+          >
             Danger
           </button>
         </div>
