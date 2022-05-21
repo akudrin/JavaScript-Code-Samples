@@ -7,6 +7,7 @@ export class ThemeButton extends Component {
         `Target: ${event.target.tagName} ` +
         `CurrentTarget: ${event.currentTarget.tagName}`
     );
+    console.log("Invoked function prop");
     this.props.callback(this.props.theme);
   };
   render() {
