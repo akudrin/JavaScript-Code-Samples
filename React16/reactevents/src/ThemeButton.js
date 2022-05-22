@@ -8,6 +8,8 @@ export class ThemeButton extends Component {
     );
     if (capturePhase) {
       console.log("Skipped function prop: capture phase");
+    } else if (event.bubbles && event.currentTarget !== event.target) {
+      console.log("Skipped function prop: bubble phase");
     } else {
       console.log("Invoked function prop");
       this.props.callback(this.props.theme);
