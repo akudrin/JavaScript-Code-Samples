@@ -7,7 +7,12 @@ export class ThemeButton extends Component {
         `CurrentTarget: ${event.currentTarget.tagName}`
     );
     if (capturePhase) {
-      console.log("Skipped function prop: capture phase");
+      if (this.props.theme === "danger") {
+        event.stopPropagation();
+        console.log("Stopped event");
+      } else {
+        console.log("Skipped function prop: capture phase");
+      }
     } else if (event.bubbles && event.currentTarget !== event.target) {
       console.log("Skipped function prop: bubble phase");
     } else {
