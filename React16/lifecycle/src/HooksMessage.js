@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { ActionButton } from "./ActionButton";
 export function HooksMessage(props) {
   const [showSpan, setShowSpan] = useState(false);
-  useEffect(() => console.log("useEffect function invoked"));
+  useEffect(() => {
+    console.log("useEffect function invoked");
+    return () => console.log("useEffect cleanup");
+  });
   const handleClick = (event) => {
     setShowSpan(!showSpan);
     props.callback(event);
