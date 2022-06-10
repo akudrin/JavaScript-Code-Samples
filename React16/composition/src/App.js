@@ -3,7 +3,11 @@ import { GeneralList } from "./GeneralList";
 import { SortedList } from "./SortedList";
 //import { ProFeature } from "./ProFeature";
 import { ProController } from "./ProController";
-const ProList = ProController(SortedList);
+import { LogToConsole } from "./LogToConsole";
+
+const ProList = ProController(
+  LogToConsole(SortedList, "Sorted", true, true, true)
+);
 export default class App extends Component {
   constructor(props) {
     super(props);
