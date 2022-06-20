@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import { ProModeContext } from "./ProModeContext";
-export class ProModeToggle extends Component {
-  static contextType = ProModeContext;
-  render() {
-    return (
-      <div className="form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          value={this.context.proMode}
-          onChange={this.context.toggleProMode}
-        />
-        <label className="form-check-label">{this.props.label}</label>
-      </div>
-    );
-  }
+export function ProModeToggle(props) {
+  const context = useContext(ProModeContext);
+  return (
+    <div className="form-check">
+      <input
+        type="checkbox"
+        className="form-check-input"
+        value={context.proMode}
+        onChange={context.toggleProMode}
+      />
+      <label className="form-check-label">{props.label}</label>
+    </div>
+  );
 }
