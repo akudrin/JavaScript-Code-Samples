@@ -7,6 +7,7 @@ export class Editor extends Component {
       category: "",
       price: "",
     };
+    this.nameRef = React.createRef();
   }
   handleChange = (event) => {
     event.persist();
@@ -14,7 +15,9 @@ export class Editor extends Component {
   };
   handleAdd = () => {
     this.props.callback(this.state);
-    this.setState({ name: "", category: "", price: "" });
+    this.setState({ name: "", category: "", price: "" }, () =>
+      this.nameRef.current.focus()
+    );
   };
   render() {
     return (
@@ -27,6 +30,7 @@ export class Editor extends Component {
             value={this.state.name}
             onChange={this.handleChange}
             autoFocus={true}
+            ref={this.nameRef}
           />
         </div>
         <div className="form-group p-2">
