@@ -2,28 +2,25 @@ import React, { Component } from "react";
 export class Editor extends Component {
   constructor(props) {
     super(props);
-    // this.state = {// name: "",
-    // category: "",
-    // price: ""
-    // }
-    this.nameRef = React.createRef();
-    this.categoryRef = React.createRef();
-    this.priceRef = React.createRef();
+    this.formElements = {
+      name: {},
+      category: {},
+      price: {},
+    };
   }
-  // handleChange = (event) => {
-  // event.persist();
-  // this.setState(state => state[event.target.name] = event.target.value);
-  // }
+  setElement = (element) => {
+    if (element !== null) {
+      this.formElements[element.name].element = element;
+    }
+  };
   handleAdd = () => {
-    this.props.callback({
-      name: this.nameRef.current.value,
-      category: this.categoryRef.current.value,
-      price: this.priceRef.current.value,
+    let data = {};
+    Object.values(this.formElements).forEach((v) => {
+      data[v.element.name] = v.element.value;
+      v.element.value = "";
     });
-    this.nameRef.current.value = "";
-    this.categoryRef.current.value = "";
-    this.priceRef.current.value = "";
-    this.nameRef.current.focus();
+    this.props.callback(data);
+    this.formElements.name.element.focus();
   };
   render() {
     return (
@@ -34,7 +31,7 @@ export class Editor extends Component {
             className="form-control"
             name="name"
             autoFocus={true}
-            ref={this.nameRef}
+            ref={this.setElement}
           />
         </div>
         <div className="form-group p-2">
@@ -42,12 +39,12 @@ export class Editor extends Component {
           <input
             className="form-control"
             name="category"
-            ref={this.categoryRef}
+            ref={this.setElement}
           />
         </div>
         <div className="form-group p-2">
           <label>Price</label>
-          <input className="form-control" name="price" ref={this.priceRef} />
+          <input className="form-control" name="price" ref={this.setElement} />
         </div>
         <div className="text-center">
           <button className="btn btn-primary" onClick={this.handleAdd}>
