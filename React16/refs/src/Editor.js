@@ -23,6 +23,7 @@ export class Editor extends Component {
     };
     this.state = {
       errors: {},
+      wrapContent: false,
     };
   }
   setElement = (element) => {
@@ -55,9 +56,32 @@ export class Editor extends Component {
     });
     return valid;
   };
+  toggleWrap = () => {
+    this.setState((state) => (state.wrapContent = !state.wrapContent));
+  };
+  wrapContent(content) {
+    return this.state.wrapContent ? (
+      <div className="bg-secondary p-2">
+        <div className="bg-light">{content}</div>
+      </div>
+    ) : (
+      content
+    );
+  }
   render() {
-    return (
+    return this.wrapContent(
       <React.Fragment>
+        <div className="form-group text-center p-2">
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              checked={this.state.wrapContent}
+              onChange={this.toggleWrap}
+            />
+            <label className="form-check-label">Wrap Content</label>
+          </div>
+        </div>
         {Object.values(this.formElements).map((elem) => (
           <div className="form-group p-2" key={elem.name}>
             <label>{elem.label}</label>
