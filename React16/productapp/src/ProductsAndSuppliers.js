@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Selector } from "./Selector";
 import { ProductDisplay } from "./ProductDisplay";
 import { SupplierDisplay } from "./SupplierDisplay";
+
 export default class ProductsAndSuppliers extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ export default class ProductsAndSuppliers extends Component {
     };
     this.idCounter = 100;
   }
+
   saveData = (collection, item) => {
     if (item.id === "") {
       item.id = this.idCounter++;
@@ -33,6 +35,7 @@ export default class ProductsAndSuppliers extends Component {
       );
     }
   };
+
   deleteData = (collection, item) => {
     this.setState(
       (state) =>
@@ -41,6 +44,7 @@ export default class ProductsAndSuppliers extends Component {
         ))
     );
   };
+
   render() {
     return (
       <div>

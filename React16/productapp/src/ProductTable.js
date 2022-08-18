@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ProductTableRow } from "./ProductTableRow";
+
 export class ProductTable extends Component {
   render() {
     return (

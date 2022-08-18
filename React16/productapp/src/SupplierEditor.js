@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 export class SupplierEditor extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,7 @@ export class SupplierEditor extends Component {
       },
     };
   }
+
   handleChange = (ev) => {
     ev.persist();
     this.setState(
@@ -21,12 +23,14 @@ export class SupplierEditor extends Component {
             : ev.target.value)
     );
   };
+
   handleClick = () => {
     this.props.saveCallback({
       ...this.state.formData,
       products: this.state.formData.products.map((val) => Number(val)),
     });
   };
+
   render() {
     return (
       <div className="m-2">
@@ -58,6 +62,7 @@ export class SupplierEditor extends Component {
             onChange={this.handleChange}
           />
         </div>
+
         <div className="form-group">
           <label>Products</label>
           <input
@@ -67,6 +72,7 @@ export class SupplierEditor extends Component {
             onChange={this.handleChange}
           />
         </div>
+
         <div className="text-center">
           <button className="btn btn-primary m-1" onClick={this.handleClick}>
             Save

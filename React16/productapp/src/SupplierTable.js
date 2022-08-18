@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SupplierTableRow } from "./SupplierTableRow";
+
 export class SupplierTable extends Component {
   render() {
     return (

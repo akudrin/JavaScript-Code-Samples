@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { SupplierEditor } from "./SupplierEditor";
 import { SupplierTable } from "./SupplierTable";
+
 export class SupplierDisplay extends Component {
   constructor(props) {
     super(props);
@@ -9,19 +10,24 @@ export class SupplierDisplay extends Component {
       selected: null,
     };
   }
+
   startEditing = (supplier) => {
     this.setState({ showEditor: true, selected: supplier });
   };
+
   createSupplier = () => {
     this.setState({ showEditor: true, selected: {} });
   };
+
   cancelEditing = () => {
     this.setState({ showEditor: false, selected: null });
   };
+
   saveSupplier = (supplier) => {
     this.props.saveCallback(supplier);
     this.setState({ showEditor: false, selected: null });
   };
+
   render() {
     if (this.state.showEditor) {
       return (
