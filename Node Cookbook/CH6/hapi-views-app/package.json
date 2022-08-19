@@ -12,6 +12,6 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
     "@hapi/vision": "^6.1.0",
-    "ejs": "^3.1.6"
+    "ejs": "^3.1.7"
   }
 }
